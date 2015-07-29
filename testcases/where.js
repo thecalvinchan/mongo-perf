@@ -130,7 +130,7 @@ function nestedGenerator(big) {
  */
 tests.push({name: "Where.CompareToInt.QueryLanguage",
             tags: ['query','compare'],
-            pre: generateDocs(1000, increasingXGenerator()),
+            pre: generateDocs(500, increasingXGenerator()),
             ops: [
               {op: "find", query: {x : 1}}
             ]});
@@ -141,7 +141,7 @@ tests.push({name: "Where.CompareToInt.QueryLanguage",
  */
 tests.push({name: "Where.CompareToInt.Where.DoubleEquals",
             tags: ['query','where'],
-            pre: generateDocs(1000, increasingXGenerator()),
+            pre: generateDocs(500, increasingXGenerator()),
             ops: [
               {op: "find", query: {$where: function() {return this.x == 1;}}} 
             ]});
@@ -152,21 +152,9 @@ tests.push({name: "Where.CompareToInt.Where.DoubleEquals",
  */
 tests.push({name: "Where.CompareToInt.Where.TripleEquals",
             tags: ['query','where'],
-            pre: generateDocs(1000, increasingXGenerator()),
+            pre: generateDocs(500, increasingXGenerator()),
             ops: [
               {op: "find", query: {$where: function() {return this.x === 1;}}} 
-            ]});
-
-
-/**
- * Setup: creates a collection with documents of the form {x : i}
- * Test: Finds all documents with x between 1 and 6 using $in 
- */
-tests.push({name: "Where.In.QueryLanguage",
-            tags: ['query','compare'],
-            pre: generateDocs(1000, increasingXGenerator()),
-            ops: [
-              {op: "find", query: {x: {$in: [1, 2, 3, 4, 5, 6]}}} 
             ]});
 
 /*
@@ -201,7 +189,7 @@ tests.push({name: "Where.SimpleNested.QueryLanguage",
  */
 tests.push({name: "Where.CompareFields.Equals",
             tags: ['query','where'],
-            pre: generateDocs(1000, increasingXGenerator()),
+            pre: generateDocs(500, increasingXGenerator()),
             ops: [
               {op: "find", query: {$where: function() {return this.x == this.y; }}} 
             ]});
